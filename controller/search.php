@@ -236,10 +236,10 @@
         $id = $_GET['ingresoFinal'];
 
         $test = "UPDATE asociado SET estado = 3 where id = ". $id;
-        if($numero != ''){
-            $insert = "insert into opinion (id_asociado) values (".$id.")";
-            mysqli_query($mysqli,$insert);
-        }
+        
+        $insert = "insert into opinion (id_asociado) values (".$id.")";
+        mysqli_query($mysqli,$insert);
+        
         
          mysqli_query($mysqli,$test);
         
