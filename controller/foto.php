@@ -86,7 +86,7 @@ if ($uploadOk == 0) {
             $insert = "insert into opinion (id_asociado) values (".$id.")";
             mysqli_query($mysqli,$insert);
         }*/
-           header('Location: http://10.60.81.213/accesos/fotografia.php');
+           header('Location: http://10.60.81.213/accesos/fotografia.php?numeroHoja=' .$numeroHoja);
          //retorna una variable del numero de hoja que le toca firmar
          // header('Location: http://10.60.81.32:81/accesos1/accesos/fotografia.php?numeroHoja=' .$numeroHoja);
     } else {
