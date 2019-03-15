@@ -62,8 +62,6 @@
                                                 <tr>
                                                     <th scope="col">Cif</th>
                                                     <th scope="col">Nombre</th>
-                                                    <th scope="col">Agencia</th>
-                                                    <th scope="col">Derecho</th>
                                                     <th scope="col">Motivo</th>
                                                 </tr>
                                             </thead>
@@ -71,8 +69,6 @@
                                                 <tr v-for="co in asociado">
                                                     <td v-text="co.cif"></td>
                                                     <td v-text="co.nombre"></td>
-                                                    <td v-text="co.areaFinanciera"></td>
-                                                    <td><span class="badge badge-pill badge-dark">{{ co.derecho }}</span></td>
                                                     <td><span class="badge badge-pill badge-danger">{{co.motivo}}</span></td>
                                                 </tr>
                                             </tbody>

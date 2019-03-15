@@ -23,7 +23,7 @@
                                     <th>Cif</th>
                                     <th>Nombre</th>
                                     <th>Agencia</th>
-                                    <th>Derecho</th>
+                                    <th>Votador</th>
                                     <th># HOJA</th>
                                   <!--  <th>Ingrese numero</th> -->
                                     <th>OP</th>
@@ -36,10 +36,10 @@
                                     <td v-text="aso.areaFinanciera"></td>
                                     <td>
                                     <template v-if="aso.derecho == 'VERDE'">
-                                        <span class="badge badge-pill badge-success">{{ aso.derecho }}</span>
+                                        <span class="badge badge-pill badge-success">A</span>
                                     </template>
                                     <template v-else>
-                                        <span class="badge badge-pill badge-danger">{{ aso.derecho }}</span>
+                                        <span class="badge badge-pill badge-danger">B</span>
                                     </template>
                                     
                                     </td> 

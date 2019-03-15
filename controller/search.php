@@ -151,17 +151,35 @@
      if(isset($_GET['numero'])){
         $numero = $_GET['numero'];
        
-        
-       $test = "SELECT a.id,a.cif,a.nombre,a.foto,a.areaFinanciera FROM opinion as o inner join asociado as a on a.id = o.id_asociado where o.estado = 1  ";    
+        $query_auditoria = "select count(*) as total from  auditoria_opinion where numero_asociado = " .$numero;
        
-        $query = mysqli_query($mysqli,$test);
+       $query_count = mysqli_query($mysqli,$query_auditoria);
+        $data=mysqli_fetch_assoc($query_count);
+        $count = $data['total'];
+        
 
-        $response = array();
-        while($row = mysqli_fetch_assoc($query)){
-            $response[] = $row;
-         }
-         echo json_encode($response);
-         exit;
+        if($count <= 2){
+            $test = "SELECT a.id,a.cif,a.nombre,a.foto,a.areaFinanciera FROM opinion as o inner join asociado as a on a.id = o.id_asociado where o.estado = 1  ";    
+            $query = mysqli_query($mysqli,$test);
+
+            $response = array();
+            while($row = mysqli_fetch_assoc($query)){
+                $response[] = $row;
+            }
+            echo json_encode($response);
+            exit;
+        }else{
+            $response = array(
+                "error" => "SI",
+                "message" => "TIENE MAS DE 2 PARTICIPACIONES"            
+            );
+          
+             echo json_encode($response);
+             exit;
+        }
+
+
+       
     }
 
     //busca al asociado que va a opinar

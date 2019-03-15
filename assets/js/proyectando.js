@@ -16,18 +16,22 @@ var app = new Vue({
             this.foto1 = 'fotos/';
             this.nombre1 = '';
             this.cif1 = '';
-            let url = 'controller/search.php?numero=0';
+            let url = 'controller/search.php?numero=' + this.numero;
 
 
             axios.get(url).then(response => {
-                app.asociado = response.data;
-                app.nombre1 = app.asociado[0].nombre;
-                app.cif1 = app.asociado[0].cif;
-                app.foto1 += app.asociado[0].foto;
-                app.numero = '';
-            });
+                if (response.data.error) {
+                    alert(response.data.message);
+                } else {
+                    app.asociado = response.data;
+                    app.nombre1 = app.asociado[0].nombre;
+                    app.cif1 = app.asociado[0].cif;
+                    app.foto1 += app.asociado[0].foto;
+                    app.numero = '';
 
-            console.log(app.foto1)
+                }
+
+            });
         },
         buscarNumero() {
             let url = 'controller/search.php?opinion=' + this.numero;

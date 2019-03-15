@@ -63,22 +63,20 @@
                                                 <tr>
                                                     <th scope="col">Cif</th>
                                                     <th scope="col">Nombre</th>
-                                                    <th scope="col">Agencia</th>
-                                                    <th>Derecho</th>
-                                                    <th scope="col">Next</th>
+                                                    <th>Validar</th>
+                                                    <th scope="col">Descripcion</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr v-for="co in asociado">
                                                     <td v-text="co.cif"></td>
                                                     <td v-text="co.nombre"></td>
-                                                    <td v-text="co.areaFinanciera"></td>
                                                     <td>
                                                             <template v-if="co.id_estado_derecho == 1">
-                                                                <span class="badge badge-pill badge-success">DERECHO</span>
+                                                                <span class="badge badge-pill badge-success">ENTRA</span>
                                                             </template>
                                                             <template v-else-if="co.id_estado_derecho == 2">
-                                                                <span class="badge badge-pill badge-danger">NO DERECHO</span> 
+                                                                <span class="badge badge-pill badge-danger">NO ENTRA</span> 
                                                             </template>
                                                             <template v-else>
                                                                 <span class="badge badge-pill badge-danger">NADA</span>
@@ -95,7 +93,7 @@
                                                         <span class="badge badge-success">YA SE RETIRO</span>
                                                     </template>
                                                     <template v-else>
-                                                        <button type="button" class="btn btn-primary btn-sm" @click="ingresar(co.id,co.id_estado_derecho)">NEXT -></button>
+                                                        <button type="button" class="btn btn-primary btn-sm" @click="ingresar(co.id,co.id_estado_derecho)">SIGUIENTE</button>
                                                     </template>
                                                     </td>
                                                 </tr>
