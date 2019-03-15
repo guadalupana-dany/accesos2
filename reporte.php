@@ -9,8 +9,7 @@
     <title>Reporte</title>
 </head>
 <body>
-<div id="app">
-      
+<div id="app">      
         <div class="container">
         <?php
             include_once("conexion.php");
@@ -18,23 +17,10 @@
             $query_count = mysqli_query($mysqli,$query_auditoria);
             $data=mysqli_fetch_assoc($query_count);
             $count = $data['total'];
-
-            $time = time();
-
-echo date("d-m-Y (H:i:s)", $time);
-
-            echo "<h1>FECHA : " . date("d") . " del " . date("m") . " de " . date("Y")."</h1>";
-        
+            echo "<h1>FECHA : " . date("d") . " del " . date("m") . " de " . date("Y")."</h1>";        
         ?>
-
-        <h1 style="">CANTIDAD DE ASOCIADO : <?=$count?></h1>
-                 
-      
-      
-      
-        </div>
-
-
+        <h1 style="">CANTIDAD DE ASOCIADO : <?=$count?></h1>             
+      </div>
 </div>
 </body>
 </html>
